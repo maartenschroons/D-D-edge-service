@@ -16,7 +16,7 @@ public class Character {
     private String alignment;
     private int Strenght;
     private int Dexterity;
-    private int conjuring;
+    private int constitution;
     private int wisdom;
     private int intelligence;
     private int charisma;
@@ -62,7 +62,7 @@ public class Character {
         return race;
     }
 
-    public Character(int id, Race race, List<Equipment> equipment, Class klasse, Player player, String name, String alignment, int strenght, int dexterity, int conjuring, int wisdom, int intelligence, int charisma) {
+    public Character(int id, Race race, List<Equipment> equipment, Class klasse, Player player, String name, String alignment, int strenght, int dexterity, int constitution, int wisdom, int intelligence, int charisma) {
         this.id = id;
         this.race = race;
         this.equipment = equipment;
@@ -72,7 +72,7 @@ public class Character {
         this.alignment = alignment;
         Strenght = strenght;
         Dexterity = dexterity;
-        this.conjuring = conjuring;
+        this.constitution = constitution;
         this.wisdom = wisdom;
         this.intelligence = intelligence;
         this.charisma = charisma;
@@ -138,12 +138,12 @@ public class Character {
         Dexterity = dexterity;
     }
 
-    public int getConjuring() {
-        return conjuring;
+    public int getConstitution() {
+        return constitution;
     }
 
-    public void setConjuring(int conjuring) {
-        this.conjuring = conjuring;
+    public void setConstitution(int constitution) {
+        this.constitution = constitution;
     }
 
     public int getWisdom() {
