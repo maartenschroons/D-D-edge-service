@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +22,7 @@ public class RaceController {
     @Autowired
     private RestTemplate restTemplate;
 
+    // http://localhost:8010/race/all
     @RequestMapping("/all")
     public List<Race> getAll() {
         GenericResponseWrapper wrapper = restTemplate.getForObject("http://localhost:8001/races/search/findRacesBySize?size=medium", GenericResponseWrapper.class);
@@ -28,6 +30,13 @@ public class RaceController {
         List<Race> races = objectMapper.convertValue(wrapper.get_embedded().get("races"), new TypeReference<List<Race>>() {});
 
         return races;
+    }
+
+    // http://localhost:8010/race/name?name=Dwarf
+    @RequestMapping("/name")
+    public Race getRaceByName(@RequestParam(value="name") String name) {
+        Race race = restTemplate.getForObject("http://localhost:8001/races/search/findRacesByName?name="+name, Race.class);
+        return race;
     }
 
 
