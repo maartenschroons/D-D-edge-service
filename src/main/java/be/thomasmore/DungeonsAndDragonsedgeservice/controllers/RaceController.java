@@ -39,7 +39,12 @@ public class RaceController {
         return race;
     }
 
-
+    // http://localhost:8010/race/id?id=5dd6737d1c9d4400008a5a40
+    @RequestMapping("/id")
+    public Race getRaceById(@RequestParam(value="id") String id) {
+        Race race = restTemplate.getForObject("http://localhost:8001/races/search/findRacesById?id="+id, Race.class);
+        return race;
+    }
 
 
 }
