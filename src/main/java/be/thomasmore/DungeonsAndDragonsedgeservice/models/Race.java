@@ -1,20 +1,33 @@
 package be.thomasmore.DungeonsAndDragonsedgeservice.models;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Race {
-    private int id;
+    private String id;
     private String name;
-    private double speed;
-    private String alignment;
-    private double size;
-    private List<String> abilityBonuses;
+    private int speed;
+    private String size;
+    private String abilityBonuses;
 
-    public int getId() {
+    public Race(String id, String name, int speed, String size, String abilityBonuses) {
+        this.id = id;
+        this.name = name;
+        this.speed = speed;
+        this.size = size;
+        this.abilityBonuses = abilityBonuses;
+    }
+
+    public Race() {
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -26,44 +39,27 @@ public class Race {
         this.name = name;
     }
 
-    public double getSpeed() {
+    public int getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    public String getAlignment() {
-        return alignment;
-    }
-
-    public void setAlignment(String alignment) {
-        this.alignment = alignment;
-    }
-
-    public double getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(double size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
-    public Race(int id, String name, long speed, String alignment, long size, List<String> abilityBonuses) {
-        this.id = id;
-        this.name = name;
-        this.speed = speed;
-        this.alignment = alignment;
-        this.size = size;
-        this.abilityBonuses = abilityBonuses;
-    }
-
-    public List<String> getAbilityBonuses() {
+    public String getAbilityBonuses() {
         return abilityBonuses;
     }
 
-    public void setAbilityBonuses(List<String> abilityBonuses) {
+    public void setAbilityBonuses(String abilityBonuses) {
         this.abilityBonuses = abilityBonuses;
     }
 }
