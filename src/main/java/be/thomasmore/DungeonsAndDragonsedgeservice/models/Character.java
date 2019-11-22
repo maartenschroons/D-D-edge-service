@@ -1,26 +1,43 @@
 package be.thomasmore.DungeonsAndDragonsedgeservice.models;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Character {
     private int id;
-    private int raceId;
-    private int equipmentId;
-    private int classId;
-    private int playerId;
-    private Race race;
-    private List<Equipment> equipment;
-    private Class klasse;
-    private Player player;
+    private String raceid;
+    private int equipmentid;
+    private int classid;
+    private int playerid;
     private String name;
     private String alignment;
-    private int Strenght;
-    private int Dexterity;
+    private int strength;
+    private int dexterity;
     private int constitution;
-    private int wisdom;
     private int intelligence;
+    private int wisdom;
     private int charisma;
 
+    public Character() {
+    }
+
+    public Character(int id, String raceid, int equipmentid, int classid, int playerid, String name, String alignment, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+        this.id = id;
+        this.raceid = raceid;
+        this.equipmentid = equipmentid;
+        this.classid = classid;
+        this.playerid = playerid;
+        this.name = name;
+        this.alignment = alignment;
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.constitution = constitution;
+        this.intelligence = intelligence;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
+    }
 
     public int getId() {
         return id;
@@ -30,80 +47,36 @@ public class Character {
         this.id = id;
     }
 
-    public int getRaceId() {
-        return raceId;
+    public String getRaceid() {
+        return raceid;
     }
 
-    public void setRaceId(int raceId) {
-        this.raceId = raceId;
+    public void setRaceid(String raceid) {
+        this.raceid = raceid;
     }
 
-    public int getEquipmentId() {
-        return equipmentId;
+    public int getEquipmentid() {
+        return equipmentid;
     }
 
-    public void setEquipmentId(int equipmentId) {
-        this.equipmentId = equipmentId;
+    public void setEquipmentid(int equipmentid) {
+        this.equipmentid = equipmentid;
     }
 
-    public int getClassId() {
-        return classId;
+    public int getClassid() {
+        return classid;
     }
 
-    public void setClassId(int classId) {
-        this.classId = classId;
+    public void setClassid(int classid) {
+        this.classid = classid;
     }
 
-    public int getPlayerId() {
-        return playerId;
+    public int getPlayerid() {
+        return playerid;
     }
 
-    public Race getRace() {
-        return race;
-    }
-
-    public Character(int id, Race race, List<Equipment> equipment, Class klasse, Player player, String name, String alignment, int strenght, int dexterity, int constitution, int wisdom, int intelligence, int charisma) {
-        this.id = id;
-        this.race = race;
-        this.equipment = equipment;
-        this.klasse = klasse;
-        this.player = player;
-        this.name = name;
-        this.alignment = alignment;
-        Strenght = strenght;
-        Dexterity = dexterity;
-        this.constitution = constitution;
-        this.wisdom = wisdom;
-        this.intelligence = intelligence;
-        this.charisma = charisma;
-    }
-
-    public void setRace(Race race) {
-        this.race = race;
-    }
-
-    public void setEquipment(List<Equipment> equipment) {
-        this.equipment = equipment;
-    }
-
-    public Class getKlasse() {
-        return klasse;
-    }
-
-    public void setKlasse(Class klasse) {
-        this.klasse = klasse;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
+    public void setPlayerid(int playerid) {
+        this.playerid = playerid;
     }
 
     public String getName() {
@@ -122,20 +95,20 @@ public class Character {
         this.alignment = alignment;
     }
 
-    public int getStrenght() {
-        return Strenght;
+    public int getStrength() {
+        return strength;
     }
 
-    public void setStrenght(int strenght) {
-        Strenght = strenght;
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
     public int getDexterity() {
-        return Dexterity;
+        return dexterity;
     }
 
     public void setDexterity(int dexterity) {
-        Dexterity = dexterity;
+        this.dexterity = dexterity;
     }
 
     public int getConstitution() {
@@ -146,20 +119,20 @@ public class Character {
         this.constitution = constitution;
     }
 
-    public int getWisdom() {
-        return wisdom;
-    }
-
-    public void setWisdom(int wisdom) {
-        this.wisdom = wisdom;
-    }
-
     public int getIntelligence() {
         return intelligence;
     }
 
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
+    }
+
+    public int getWisdom() {
+        return wisdom;
+    }
+
+    public void setWisdom(int wisdom) {
+        this.wisdom = wisdom;
     }
 
     public int getCharisma() {
@@ -169,7 +142,6 @@ public class Character {
     public void setCharisma(int charisma) {
         this.charisma = charisma;
     }
-
-
-
 }
+
+

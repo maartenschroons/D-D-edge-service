@@ -1,22 +1,26 @@
 package be.thomasmore.DungeonsAndDragonsedgeservice.models;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
+import java.util.List;
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Class {
 private int id;
 private String name;
 private double hit_Die;
 private List<String> proficiencies;
-private double Levels;
-private String subclass;
+private boolean spellcasting;
 
-    public Class(int id, String name, double hit_Die, List<String> proficiencies, double levels, String subclass, List<String> spellcasting) {
+    public Class() {
+    }
+
+    public Class(int id, String name, double hit_Die, List<String> proficiencies, boolean spellcasting) {
         this.id = id;
         this.name = name;
         this.hit_Die = hit_Die;
         this.proficiencies = proficiencies;
-        Levels = levels;
-        this.subclass = subclass;
         this.spellcasting = spellcasting;
     }
 
@@ -52,29 +56,11 @@ private String subclass;
         this.proficiencies = proficiencies;
     }
 
-    public double getLevels() {
-        return Levels;
-    }
-
-    public void setLevels(double levels) {
-        Levels = levels;
-    }
-
-    public String getSubclass() {
-        return subclass;
-    }
-
-    public void setSubclass(String subclass) {
-        this.subclass = subclass;
-    }
-
-    public List<String> getSpellcasting() {
+    public boolean isSpellcasting() {
         return spellcasting;
     }
 
-    public void setSpellcasting(List<String> spellcasting) {
+    public void setSpellcasting(boolean spellcasting) {
         this.spellcasting = spellcasting;
     }
-
-    private List<String> spellcasting;
 }
