@@ -25,7 +25,7 @@ public class RaceController {
     // http://localhost:8010/race/all
     @RequestMapping("/all")
     public List<Race> getAll() {
-        GenericResponseWrapper wrapper = restTemplate.getForObject("http://localhost:8001/races/search/findRacesBySize?size=medium", GenericResponseWrapper.class);
+        GenericResponseWrapper wrapper = restTemplate.getForObject("http://localhost:8001/races/search/findByNameNotNull", GenericResponseWrapper.class);
 
         List<Race> races = objectMapper.convertValue(wrapper.get_embedded().get("races"), new TypeReference<List<Race>>() {});
 
