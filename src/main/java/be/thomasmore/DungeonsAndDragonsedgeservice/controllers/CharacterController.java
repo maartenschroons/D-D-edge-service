@@ -61,6 +61,12 @@ public class CharacterController {
         restTemplate.put("http://localhost:8002/characters/"+character.getId(), character, String.class);
         return  ResponseEntity.ok().build();
     }
+    //http://localhost:8010/character/delete/?id=5
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteCharacterById(@RequestParam("id") Integer id){
+        restTemplate.delete("http://localhost:8002/characters/"+ id, String.class);
+        return  ResponseEntity.ok().build();
+    }
 
 
 
