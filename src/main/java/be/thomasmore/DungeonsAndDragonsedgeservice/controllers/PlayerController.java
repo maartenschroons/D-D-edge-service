@@ -46,7 +46,7 @@ public class PlayerController {
         List<HttpMessageConverter<?>> list = new ArrayList<>();
         list.add(new MappingJackson2HttpMessageConverter());
         restTemplate.setMessageConverters(list);
-        restTemplate.put("localhost:8003/players/search/putPlayerById?id=" + id, player, Player.class);
+        restTemplate.put("localhost:8003/players/search/" + id, player, Player.class);
 
         return ResponseEntity.ok().build();
     }
@@ -54,14 +54,14 @@ public class PlayerController {
     @ApiOperation(value="de player verwijderen die hoort bij de gegeven id", response = List.class)
     @DeleteMapping("/id")
     public ResponseEntity deletePlayerById(@RequestParam("id") Integer id){
-        restTemplate.delete("http://localhost:8003/players/search/deletePlayerById?id=" + id, Player.class);
+        restTemplate.delete("http://localhost:8003/players/search/" + id, Player.class);
         return ResponseEntity.ok().build();
     }
 
     @ApiOperation(value="Een player toevoegen", response = List.class)
     @PostMapping("/")
     public ResponseEntity<Object> PostPlayerById(@RequestBody Player player){
-        ResponseEntity<Player> result = restTemplate.postForEntity("http://localhost:8003/players/search/postPlayerById?id=",player, Player.class);
+        ResponseEntity<Player> result = restTemplate.postForEntity("http://localhost:8003/players/search/",player, Player.class);
         return ResponseEntity.ok().build();
     }
 
